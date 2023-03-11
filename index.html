@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>slider</title>
+</head>
+<body>
+    <div class="slider">
+        <div class="item">
+            <a class="previous" onclick="previousSlide()">&#10094;</a>
+            <div class="item_col">
+               <h2>Список населенных мест Владимирской губ. Погребищенского уезда</h2>
+               <h3>Обложка</h3> 
+               <button class="btn">Кнопка действия</button>
+            </div>           
+            <img src="img/2023-02-18_06-56-46.png" alt="">
+            <a class="next" onclick="nextSlide()">&#10095;</a>
+        </div>
+
+        <div class="item">
+            <a class="previous" onclick="previousSlide()">&#10094;</a>
+            <div class="item_col">
+               <h2>Заголовок слайда 2</h2>
+               <h3>Подзаголовок слайда 2</h3> 
+               <button class="btn">Кнопка действия</button>
+            </div>           
+            <img src="img/2023-02-18_07-24-09.png" alt="">
+            <a class="next" onclick="nextSlide()">&#10095;</a>
+        </div>
+
+        <div class="item">
+            <a class="previous" onclick="previousSlide()">&#10094;</a>
+            <div class="item_col">
+               <h2>Заголовок слайда 3</h2>
+               <h3>Подзаголовок слайда 3</h3> 
+               <button class="btn">Кнопка действия</button>
+            </div>           
+            <img src="img/2023-02-18_07-29-42.png" alt="">
+            <a class="next" onclick="nextSlide()">&#10095;</a>
+        </div>
+        
+        <div class="item">
+            <a class="previous" onclick="previousSlide()">&#10094;</a>
+            <div class="item_col">
+               <h2>Это Степочка</h2>
+               <h3>2 года</h3> 
+               <button class="btn">Кнопка действия</button>
+            </div>           
+            <img src="img/2022-08-16_10-17-49.png" alt="">
+            <a class="next" onclick="nextSlide()">&#10095;</a>
+        </div>
+
+        <div class="arrow_mobile">
+            <a class="previous_mobile" onclick="previousSlide()">&#10094;</a>
+            <a class="next_mobile" onclick="nextSlide()">&#10095;</a>
+        </div>
+        
+    </div>
+    <script>
+        let slideIndex = 1;
+/* Вызываем функцию, которая реализована ниже: */
+        showSlides(slideIndex);
+
+/* Увеличиваем индекс на 1 — показываем следующий слайд: */
+        function nextSlide() {
+           showSlides(slideIndex += 1);
+        }
+
+/* Уменьшаем индекс на 1 — показываем предыдущий слайд: */
+        function previousSlide() {
+           showSlides(slideIndex -= 1);  
+        }
+
+/* Устанавливаем текущий слайд: */
+        function currentSlide(n) {
+           showSlides(slideIndex = n);
+        }
+
+/* Функция перелистывания: */
+        function showSlides(n) {
+    /* Обращаемся к элементам с названием класса "item", то есть к картинкам: */
+           let slides = document.getElementsByClassName("item");
+    
+    /* Проверяем количество слайдов: */
+            if (n > slides.length) {
+               slideIndex = 1
+            }
+            if (n < 1) {
+               slideIndex = slides.length
+            }
+  
+    /* Проходим по каждому слайду в цикле for: */
+            for (let slide of slides) {
+               slide.style.display = "none";
+            }
+    /* Делаем элемент блочным: */
+            slides[slideIndex - 1].style.display = "flex";    
+        }
+    </script>
+</body>
+</html>
